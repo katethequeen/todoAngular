@@ -1,5 +1,17 @@
+<form class="d-flex mb-3" role="search" (submit)="searchTodos()">
+  <input
+    class="form-control me-2"
+    type="search"
+    placeholder="Search"
+    aria-label="Search"
+    [(ngModel)]="searchTerm"
+    name="search"
+    (input)="searchTodos()"
+  />
+  <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
 <div
-  *ngFor="let todo of todos"
+  *ngFor="let todo of filteredTodos"
   [ngStyle]="{ 'background-color': todo.completed ? '#dcfad9' : '#fc9a93 ' }"
 >
   <input

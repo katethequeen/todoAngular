@@ -917,7 +917,9 @@ export class TodoService {
 
       return {
         ...todo,
-        name: foundUser.firstName,
+        name: foundUser
+          ? `${foundUser.firstName} ${foundUser.lastName}`
+          : 'Unknown',
       };
     });
   }

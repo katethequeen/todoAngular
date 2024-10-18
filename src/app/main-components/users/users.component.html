@@ -1,34 +1,39 @@
 <div class="row row-cols-md-3">
-  <div class="col col-12" *ngFor="let userAndTodo of usersWithTodos">
-    <div class="card">
-      <img
-        src="{{ userAndTodo.user.image }}"
-        class="card-img-top"
-        alt="{{ userAndTodo.user.firstName }}"
-      />
-      <div class="card-body text-center">
-        <h5 class="card-title">
-          {{ userAndTodo.user.firstName }} {{ userAndTodo.user.lastName }}
-        </h5>
-        <p>{{ userAndTodo.user.title }}</p>
-      </div>
+  <div
+    class="col col-12 d-table-cell"
+    *ngFor="let userAndTodo of usersWithTodos"
+  >
+    <div *ngIf="userAndTodo.todos.length > 0">
+      <div class="card">
+        <img
+          src="{{ userAndTodo.user.image }}"
+          class="card-img-top"
+          alt="{{ userAndTodo.user.firstName }}"
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title">
+            {{ userAndTodo.user.firstName }} {{ userAndTodo.user.lastName }}
+          </h5>
+          <p>{{ userAndTodo.user.title }}</p>
+        </div>
 
-      <ul class="list-group list-group-flush">
-        <li
-          class="list-group-item"
-          *ngFor="let todo of userAndTodo.todos"
-          [ngStyle]="{
-            'background-color': todo.completed ? '#dcfad9' : '#fc9a93 '
-          }"
-        >
-          <input
-            type="checkbox"
-            [(ngModel)]="todo.completed"
-            (change)="toggleCompleted(todo)"
-          />
-          {{ todo.todo }}
-        </li>
-      </ul>
+        <ul class="list-group list-group-flush">
+          <li
+            class="list-group-item"
+            *ngFor="let todo of userAndTodo.todos"
+            [ngStyle]="{
+              'background-color': todo.completed ? '#dcfad9' : '#fc9a93 '
+            }"
+          >
+            <input
+              type="checkbox"
+              [(ngModel)]="todo.completed"
+              (change)="toggleCompleted(todo)"
+            />
+            {{ todo.todo }}
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
