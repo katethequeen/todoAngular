@@ -9,6 +9,7 @@ import { HomeComponent } from './main-components/home/home.component';
 import { UsersComponent } from './main-components/users/users.component';
 import { CompletedComponent } from './main-components/completed/completed.component';
 import { FormsModule } from '@angular/forms';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     UsersComponent,
     CompletedComponent,
+    NotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule],
   providers: [],

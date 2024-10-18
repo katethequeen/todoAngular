@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './main-components/home/home.component';
 import { UsersComponent } from './main-components/users/users.component';
 import { CompletedComponent } from './main-components/completed/completed.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'completed',
     component: CompletedComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
   },
 ];
 
